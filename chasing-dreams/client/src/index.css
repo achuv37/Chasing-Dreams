@@ -354,4 +354,61 @@ a {
   
   text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+/* FORM */
+.form-label,
+.form-input,
+.form-textarea {
+  display: block;
+}
 
+.form-label {
+  font-size: 1.2rem;
+  margin: 0.625rem 0 0.25rem;
+}
+
+.form-input {
+  
+  padding: 0.75rem;
+  margin: 0.2rem 0;
+  font-size: 1.2rem;
+  border: 2px solid black;
+  border-radius: 0.3rem;
+}
+.btn {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  margin: 5px 0;
+  border-radius: 0.3rem;
+  border: none;
+  color: black;
+  outline: none;
+  background-color: lightblue;
+  
+}
+
+/* CARDS */
+.card {
+  margin: 0 0 20px 0;
+  border: 3px solid black;
+  border-radius: 0.3rem;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.card-header {
+  color: black;
+  margin: 0;
+  background-color: lightblue;
+  padding: 0.625rem;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  
+}
+
+.card-body {
+  padding: 2.5%;
+  font-size: 1.4rem;
+  
+}

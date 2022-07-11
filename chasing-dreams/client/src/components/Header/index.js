@@ -24,6 +24,8 @@ function Header() {
         return <Hotels />;
       case 'Login':
         return <Login />; 
+      case 'Signup':
+        return <Signup />;
       default:
         return <Home />;
     }
