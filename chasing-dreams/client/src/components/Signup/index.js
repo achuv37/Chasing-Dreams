@@ -5,7 +5,7 @@ function Signup() {
     <main className='flex-row justify-center mb-4'>
       <div className='col-12 col-md-6'>
         <div className='card'>
-          <h4 className='card-header'>Sign Up</h4>
+          <h4 className='card-header'>SignUp</h4>
           <div className='card-body'>
             <form>
               <input
