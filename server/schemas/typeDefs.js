@@ -18,6 +18,7 @@ type User {
 
   type Query {
     users: [User]
+    me: User
   }
 
   type Auth {
