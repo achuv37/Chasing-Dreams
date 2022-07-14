@@ -1,62 +1,42 @@
-// Importing
-import React, { useMemo, useState } from 'react';
-import Nav from '../Nav'
-import Home from '../Home';
-import Attractions from '../Attractions';
-import Login from '../Login';
-import Signup from '../Signup'
-import Hotels from '../Hotels';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Auth from '../../utils/auth';
 
-//Header component
-function Header() {
-  const [currentPage, handlePageChange] = useState('Home');
-  
-  // Renderpage function
-  const renderPage = useMemo(() => () => {
+const Header = () => {
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
 
-  // Add a switch statement that will return the appropriate component of the 'currentPage'
-    switch (currentPage) {
-      case 'Home':
-        return <Home />;
-      case 'Attractions':
-        return <Attractions />;
-      case 'Hotels':
-        return <Hotels />;
-      case 'Login':
-        return <Login />; 
-      case 'Signup':
-        return <Signup />;
-      default:
-        return <Home />;
-    }
-  }, [currentPage]);
 
   return (
-    <div>
-      <section className='header'>
-      <nav className='navbar'>
-        <div className='navbar-brand'>
-          <h1>
-            <a className='navbar-item' href="/"> Chasing-dreams</a>
-          </h1>
-        </div>
-
-      </nav>
-      <div>
-        <Nav currentPage={currentPage} 
-        handlePageChange={handlePageChange}></Nav>
+    <header className="bg-secondary mb-4 py-2 flex-row align-center">
+      <div className="container flex-row justify-space-between-lg justify-center align-center">
+        <Link to="/">
+          <h1>Chasing Dreams</h1>
+        </Link>
+        <Link to="/">
+          <h2>Find a Hotel here</h2>
+        </Link>
+        <nav className="text-center">
+          {Auth.loggedIn() ? (
+            <>
+              <Link to="/saved">See The Hotels</Link>
+              <a href="/" onClick={logout}>
+                Logout
+              </a>
+            </>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
+          </>
+        )}
+        </nav>
+        
       </div>
-      </section>
-      <main>
-      {
-      // Render the component returned by 'renderPage()'
-          renderPage()
-        }
-      </main>
-    </div>
+    </header>
   );
-}
+};
 
-// exporting 
 export default Header;
-

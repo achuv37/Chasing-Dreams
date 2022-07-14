@@ -9,6 +9,9 @@ const hotelSchema = new Schema({
     type: String,
 
   },
+  hotelId: {
+    type: String,
+  },
   link: {
     type: String
   },
