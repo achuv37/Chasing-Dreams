@@ -20,6 +20,7 @@ type User {
   }
 
   input HotelInput {
+    hotelId: String!
     name: String
     description: String
     link: String
