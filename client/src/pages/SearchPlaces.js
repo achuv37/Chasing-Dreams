@@ -91,8 +91,8 @@ const SearchPlaces = () => {
     };
   return (
     <>
-      
-        <Container className='text-light bg-dark'>
+      <Jumbotron fluid className='text-light bg-primary'>
+        <Container>
           <h1>Search for Locations!</h1>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
@@ -114,8 +114,8 @@ const SearchPlaces = () => {
             </Form.Row>
           </Form>
         </Container>
-
-        <Container>
+      </Jumbotron>
+      <Container>
         <h2>
           {searchedPlaces.length
             ? `Viewing ${searchedPlaces.length} results:`

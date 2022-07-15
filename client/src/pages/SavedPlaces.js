@@ -37,11 +37,11 @@ const handleDeletePlace = async (placeId) => {
   }
   return (
     <>
-      
-        <Container className='text-light bg-dark'>
+      <Jumbotron fluid className='text-light bg-dark'>
+        <Container>
           <h1>Viewing your favorite locations!</h1>
         </Container>
-      
+      </Jumbotron>
       <Container>
         <h2>
           {userData.savedPlaces && userData.savedPlaces.length

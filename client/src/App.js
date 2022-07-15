@@ -9,10 +9,9 @@ import SearchPlaces from './pages/SearchPlaces';
 import SavedPlaces from './pages/SavedPlaces';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
-//import { Navbar } from 'react-bootstrap';
 
-//<Route exact path='/' component={SearchPlaces} />
-//<Route exact path='/saved' component={SavedPlaces} />
+
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -32,7 +31,7 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
+//<Route exact path='/' component={Home} />
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -40,7 +39,7 @@ function App() {
       <>
       <Navbar />
         <Switch>
-        <Route exact path='/' component={Home} />
+        
           
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />
@@ -55,5 +54,8 @@ function App() {
   </ApolloProvider>
   );
 }
+
+
+
 
 export default App;
