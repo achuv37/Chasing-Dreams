@@ -1,23 +1,23 @@
 const { Schema } = require('mongoose');
 
 // This is a subdocument schema,
-const hotelSchema = new Schema({
-  name: {
-    type: String,
+const placeSchema = new Schema({
+  placeId: {
+    type: Int
   },
-  description: {
+  placeName: {
     type: String,
 
   },
-  hotelId: {
+  placeInfo: {
     type: String,
   },
-  link: {
+  placeDescription: {
     type: String
   },
-  reviews: {
+  placeType: {
     type: String
   }
 });
 
-module.exports = hotelSchema;
+module.exports = placeSchema;
