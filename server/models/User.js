@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 
-const hotelSchema = require('./Hotel');
+const placeSchema = require('./Place');
 
 const userSchema = new Schema(
   {
@@ -22,7 +22,7 @@ const userSchema = new Schema(
       required: true,
     },
     
-   savedHotels: [hotelSchema],
+   savedPlaces: [placeSchema],
   },
   // set this to use virtual below
   {
@@ -48,8 +48,8 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get another field called hotelCount
-userSchema.virtual('hotelCount').get(function () {
-  return this.savedHotels.length;
+userSchema.virtual('placeCount').get(function () {
+  return this.savedPlaces.length;
 }); 
 
 const User = model('User', userSchema);

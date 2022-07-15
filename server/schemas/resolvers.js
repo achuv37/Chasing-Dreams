@@ -39,11 +39,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
       },
-      saveHotel: async (parent, { newHotel }, context) => {
+      savePlace: async (parent, { newPlace }, context) => {
         if (context.user) {
           const updatedUser = await User.findByIdAndUpdate(
             { _id: context.user._id },
-            { $push: { savedHotels: newHotel } },
+            { $push: { savedPlaces: newPlace } },
             { new: true }
           );
       
@@ -52,11 +52,11 @@ const resolvers = {
       
         throw new AuthenticationError('You need to be logged in!');
     },
-    removeHotel: async (parent, { hotelId }, context) => {
+    removePlace: async (parent, { placeId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedHotels: { hotelId } } },
+          { $pull: { savedPlaces: { placeId } } },
           { new: true }
         );
     

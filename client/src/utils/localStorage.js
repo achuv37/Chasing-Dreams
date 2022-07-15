@@ -1,30 +1,30 @@
-export const getSavedHotelIds = () => {
-    const savedHotelIds = localStorage.getItem('saved_hotels')
-      ? JSON.parse(localStorage.getItem('saved_hotels'))
+export const getSavedPlaceIds = () => {
+    const savedPlaceIds = localStorage.getItem('saved_places')
+      ? JSON.parse(localStorage.getItem('saved_places'))
       : [];
   
-    return savedHotelIds;
+    return savedPlaceIds;
   };
   
-  export const saveHotelIds = (hotelIdArr) => {
-    if (hotelIdArr.length) {
-      localStorage.setItem('saved_hotels', JSON.stringify(hotelIdArr));
+  export const savePlaceIds = (placeIdArr) => {
+    if (placeIdArr.length) {
+      localStorage.setItem('saved_places', JSON.stringify(placeIdArr));
     } else {
-      localStorage.removeItem('saved_hotels');
+      localStorage.removeItem('saved_places');
     }
   };
   
-  export const removeHotelId = (hotelId) => {
-    const savedHotelIds = localStorage.getItem('saved_hotels')
-      ? JSON.parse(localStorage.getItem('saved_hotels'))
+  export const removePlaceId = (placeId) => {
+    const savedPlaceIds = localStorage.getItem('saved_places')
+      ? JSON.parse(localStorage.getItem('saved_places'))
       : null;
   
-    if (!savedHotelIds) {
+    if (!savedPlaceIds) {
       return false;
     }
   
-    const updatedSavedHotelIds = savedHotelIds?.filter((savedHotelId) => savedHotelId !== hotelId);
-    localStorage.setItem('saved_hotels', JSON.stringify(updatedSavedHotelIds));
+    const updatedSavedPlaceIds = savedPlaceIds?.filter((savedPlaceId) => savedPlaceId !== placeId);
+    localStorage.setItem('saved_places', JSON.stringify(updatedSavedPlaceIds));
   
     return true;
   };
