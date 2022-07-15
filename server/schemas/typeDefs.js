@@ -7,31 +7,31 @@ type User {
     _id: ID!
     username: String!
     email: String
-    hotelCount: Int
-    savedHotels: [Hotel]
+    placeCount: Int
+    savedPlaces: [Place]
   }
 
-  type Hotel {
-    hotelId: ID!
-    name: String
-    description: String
-    link: String
-    reviews: String
+  type Place {
+    placeId: ID!
+    placeName: String
+    placeInfo: String
+    placeDescription: String
+    placeType: String
   }
 
-  input HotelInput {
-    hotelId: String!
-    name: String
-    description: String
-    link: String
-    reviews: String
+  input PlaceInput {
+    placeId: Int
+    placeName: String
+    placeInfo: String
+    placeDescription: String
+    placeType: String
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveHotel(newHotel: HotelInput!): User
-    removeHotel(hotelId: ID!): User
+    savePlace(newPlace: PlaceInput!): User
+    removePlace(placeId: ID!): User
   }
 
   type Query {

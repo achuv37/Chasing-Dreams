@@ -16,12 +16,12 @@ const Header = () => {
           <h1>Chasing Dreams</h1>
         </Link>
         <Link to="/">
-          <h2>Find a Hotel here</h2>
+          <h5>Search for locations</h5>
         </Link>
         <nav className="text-center">
           {Auth.loggedIn() ? (
             <>
-              <Link to="/saved">See The Hotels</Link>
+              <Link to="/saved">See The Places</Link>
               <a href="/" onClick={logout}>
                 Logout
               </a>

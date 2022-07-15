@@ -25,36 +25,36 @@ export const ADD_USER = gql`
   }
 `;
 
-export const SAVE_HOTEL = gql`
-  mutation saveHotel($newHotel: HotelInput!) {
-    saveHotel(newHotel: $newHotel) {
+export const SAVE_PLACE = gql`
+  mutation savePlace($newPlace: PlaceInput!) {
+    savePlace(newPlace: $newPlace) {
       _id
       username
       email
-      savedHotels {
-        hotelId
-        name
-        description
-        link
-        reviews
+      savedPlaces {
+        placeId
+        placeName
+        placeInfo
+        placeDescription
+        placeType
       }
     }
   }
   
 `;
 
-export const REMOVE_HOTEL = gql`
-  mutation removeHotel($hotelId: ID!) {
-    removeHotel(hotelId: $hotelId) {
+export const REMOVE_PLACE = gql`
+  mutation removePlace($placeId: ID!) {
+    removePlace(placeId: $placeId) {
       _id
       username
       email
-      savedHotels {
-        hotelId
-        name
-        description
-        link
-        reviews
+      savedPlaces {
+        placeId
+        placeName
+        placeInfo
+        placeDescription
+        placeType
       }
     }
   }

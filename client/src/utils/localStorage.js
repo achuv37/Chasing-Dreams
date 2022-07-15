@@ -1,30 +1,30 @@
-export const getSavedPlacesIds = () => {
-    const savedPlacesIds = localStorage.getItem('saved_places')
+export const getSavedPlaceIds = () => {
+    const savedPlaceIds = localStorage.getItem('saved_places')
       ? JSON.parse(localStorage.getItem('saved_places'))
       : [];
   
-    return savedPlacesIds;
+    return savedPlaceIds;
   };
   
-  export const savePlacesIds = (placeIdArr) => {
+  export const savePlaceIds = (placeIdArr) => {
     if (placeIdArr.length) {
       localStorage.setItem('saved_places', JSON.stringify(placeIdArr));
     } else {
-      localStorage.removeItem('save_places');
+      localStorage.removeItem('saved_places');
     }
   };
   
-  export const removePlacesId = (placeId) => {
-    const savedPlacesIds = localStorage.getItem('saved_places')
+  export const removePlaceId = (placeId) => {
+    const savedPlaceIds = localStorage.getItem('saved_places')
       ? JSON.parse(localStorage.getItem('saved_places'))
       : null;
   
-    if (!savedPlacesIds) {
+    if (!savedPlaceIds) {
       return false;
     }
   
-    const updatedSavedPlacesIds = savedPlacesIds?.filter((savedPlacesId) => savedPlacesId !== placeId);
-    localStorage.setItem('saved_places', JSON.stringify(updatedSavedPlacesIds));
+    const updatedSavedPlaceIds = savedPlaceIds?.filter((savedPlaceId) => savedPlaceId !== placeId);
+    localStorage.setItem('saved_places', JSON.stringify(updatedSavedPlaceIds));
   
     return true;
   };
