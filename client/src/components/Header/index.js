@@ -16,7 +16,7 @@ const Header = () => {
           <h1>Chasing Dreams</h1>
         </Link>
         <Link to="/">
-          <h2>Find a Hotel here</h2>
+          <h5>Find a Hotel here</h5>
         </Link>
         <nav className="text-center">
           {Auth.loggedIn() ? (
