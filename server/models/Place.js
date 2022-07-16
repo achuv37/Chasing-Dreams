@@ -3,7 +3,7 @@ const { Schema } = require('mongoose');
 // This is a subdocument schema,
 const placeSchema = new Schema({
   placeId: {
-    type: Number
+    type: String,
   },
   placeName: {
     type: String,

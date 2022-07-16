@@ -52,7 +52,7 @@ const SearchPlaces = () => {
         const { features } = await responseNew.json();
 
         const placeData = features.map((place) => ({
-            placeId: place.Id,
+            placeId: place.properties.xid,
             placeName: place.properties.name,
             placeInfo: place.properties.wikidata,
             placeDescription: place.properties.highlighted_name,

@@ -20,7 +20,7 @@ type User {
   }
 
   input PlaceInput {
-    placeId: Int
+    placeId: String
     placeName: String
     placeInfo: String
     placeDescription: String
@@ -35,7 +35,7 @@ type User {
   }
 
   type Query {
-    users: [User]
+    
     me: User
   }
 
