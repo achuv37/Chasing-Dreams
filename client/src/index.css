@@ -68,4 +68,8 @@ h6 {
   text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-
+.cardImage {
+  width: 25%;
+  height: 25%;
+  float: right;
+}
