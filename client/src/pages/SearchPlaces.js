@@ -35,15 +35,14 @@ const SearchPlaces = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
+    
 
       if (!searchInput) {
       return false;
       }
 
       try {
-        const response = await fetch(`https://api.opentripmap.com/0.1/en/places/geoname?name=${searchInput}&apikey=5ae2e3f221c38a28845f05b63f6a8d5eabe3e17858cf7c953b943189`);
+        const response = await fetch(`https://api.opentripmap.com/0.1/en/places/geoname?name=${searchInput}&apikey=${process.env.REACT_APP_OPEN_TRIP}`);
         const parsedJson = await response.json();
     
         console.log(parsedJson.lat);
