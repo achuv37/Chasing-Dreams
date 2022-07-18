@@ -39,7 +39,7 @@ const handleDeletePlace = async (placeId) => {
     <>
       <Jumbotron fluid className='text-light bg-dark'>
         <Container>
-          <h1>Viewing your favorite locations!</h1>
+          <h2>Viewing your favorite locations!</h2>
         </Container>
       </Jumbotron>
       <Container>
