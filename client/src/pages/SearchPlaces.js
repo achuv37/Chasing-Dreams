@@ -35,7 +35,8 @@ const SearchPlaces = () => {
         }
 
         try {
-          const response = await fetch(`https://api.opentripmap.com/0.1/en/places/geoname?name=${searchInput}&apikey=5ae2e3f221c38a28845f05b63f6a8d5eabe3e17858cf7c953b943189`);
+          console.log(process.env.REACT_APP_OPEN_TRIP)
+          const response = await fetch(`https://api.opentripmap.com/0.1/en/places/geoname?name=${searchInput}&apikey=${process.env.REACT_APP_OPEN_TRIP}`);
           const parsedJson = await response.json();
       
           console.log(parsedJson.lat);
@@ -45,7 +46,7 @@ const SearchPlaces = () => {
           const radius = '20000';
           
 
-          const responseNew = await fetch(`https://api.opentripmap.com/0.1/en/places/autosuggest?name=${searchInput}&lat=${lat}&lon=${lon}&radius=${radius}&apikey=5ae2e3f221c38a28845f05b63f6a8d5eabe3e17858cf7c953b943189`);
+          const responseNew = await fetch(`https://api.opentripmap.com/0.1/en/places/autosuggest?name=${searchInput}&lat=${lat}&lon=${lon}&radius=${radius}&apikey=${process.env.REACT_APP_OPEN_TRIP}`);
 
           if (!response.ok) {
               throw new Error('something went wrong!');
