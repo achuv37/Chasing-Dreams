@@ -17,6 +17,15 @@ const placeSchema = new Schema({
   },
   placeType: {
     type: String
+  },
+  placeImage: {
+    type: String
+  },
+  placeLon: {
+    type: Number
+  },
+  placeLat: {
+    type: Number
   }
 });
 
