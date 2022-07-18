@@ -1,5 +1,5 @@
 body {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 h1,
@@ -8,15 +8,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik Mono One', sans-serif;
+  font-family: "Rubik Mono One", sans-serif;
 }
 
 .small {
   font-weight: 300;
   font-style: italic;
 }
-
-
 
 /* Footer styling */
 .footer {
@@ -25,13 +23,12 @@ h6 {
   bottom: 0;
   width: 100%;
   justify-content: center;
-  
+
   background-color: black;
   padding: 10px;
   padding-top: 20px;
   font-size: small;
-  color:rgb(150, 150, 150);
-  
+  color: rgb(150, 150, 150);
 }
 .logos {
   width: 48px;
@@ -41,15 +38,21 @@ h6 {
 }
 
 .hero {
-  background-image: url("./assets/images/hero.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  position: fixed;
-  
-
+  /* position: fixed; */
   width: 100%;
-  height: 800px;
+  height: 100%;
 }
+
+.hero-home {
+  background-image: url("./assets/images/Maldives_GettyImages-686525938.webp");
+}
+
+.hero-search {
+  background-image: url("./assets/images/andre-benz-CR0E20Of7yU-unsplash.jpg");
+}
+
 .hero-cta {
   position: relative;
   width: 35%;
@@ -61,14 +64,13 @@ h6 {
   padding: 20px;
   background-color: orange;
   margin-top: 10px;
-
 }
 .hero-cta h2 {
   font-style: italic;
   font-size: 30px;
   text-align: center;
-  
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .cardImage {
@@ -93,7 +95,6 @@ h6 {
 
 /* tablets */
 @media screen and (max-width: 768px) {
-
   .hero-cta {
     width: 70%;
     font-size: 16px;
