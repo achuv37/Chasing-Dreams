@@ -37,6 +37,7 @@ export const SAVE_PLACE = gql`
         placeInfo
         placeDescription
         placeType
+        placeImage
       }
     }
   }
@@ -55,6 +56,7 @@ export const REMOVE_PLACE = gql`
         placeInfo
         placeDescription
         placeType
+        placeImage
       }
     }
   }

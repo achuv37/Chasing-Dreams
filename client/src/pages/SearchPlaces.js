@@ -28,110 +28,106 @@ const SearchPlaces = () => {
 
   // set up useEffect hook to save `savedplaceIds` list to localstorage on component unmount
 
-  useEffect(() => {
-    return () => savePlaceIds(savedPlaceIds);
-  });
+    useEffect(() => {
+      return () => savePlaceIds(savedPlaceIds);
+    })
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    if (!searchInput) {
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+
+      if (!searchInput) {
       return false;
-    }
-
-    try {
-      const response = await fetch(
-        `https://api.opentripmap.com/0.1/en/places/geoname?name=${searchInput}&apikey=5ae2e3f221c38a28845f05b63f6a8d5eabe3e17858cf7c953b943189`
-      );
-      const parsedJson = await response.json();
-
-      console.log(parsedJson.lat);
-      console.log(parsedJson.lon);
-      const lat = parsedJson.lat;
-      const lon = parsedJson.lon;
-      const radius = "20000";
-
-      const responseNew = await fetch(
-        `https://api.opentripmap.com/0.1/en/places/autosuggest?name=${searchInput}&lat=${lat}&lon=${lon}&radius=${radius}&apikey=5ae2e3f221c38a28845f05b63f6a8d5eabe3e17858cf7c953b943189`
-      );
-
-      if (!response.ok) {
-        throw new Error("something went wrong!");
       }
 
-      const { features } = await responseNew.json();
+      try {
+        const response = await fetch(`https://api.opentripmap.com/0.1/en/places/geoname?name=${searchInput}&apikey=5ae2e3f221c38a28845f05b63f6a8d5eabe3e17858cf7c953b943189`);
+        const parsedJson = await response.json();
+    
+        console.log(parsedJson.lat);
+        console.log(parsedJson.lon);
+        const lat = parsedJson.lat;
+        const lon = parsedJson.lon;
+        const radius = '20000';
+        
 
-      const placeData = features.map((place) => ({
-        placeId: place.properties.xid,
-        // placeName: place.properties.name,
-        placeInfo: place.properties.wikidata,
-        placeDescription: place.properties.highlighted_name,
-        placeType: place.properties.kinds
-          .replaceAll(",", ", ")
-          .replaceAll("_", " "),
-        //placeLat: place.geometry.coordinates[0],
-        //placeLon: place.geometry.coordinates[1]
-      }));
+        const responseNew = await fetch(`https://api.opentripmap.com/0.1/en/places/autosuggest?name=${searchInput}&lat=${lat}&lon=${lon}&radius=${radius}&apikey=5ae2e3f221c38a28845f05b63f6a8d5eabe3e17858cf7c953b943189`);
 
-      // attach image to places when possible
-      for (const place of placeData) {
-        if (place.placeInfo) {
-          //query the mediawiki API:
-          const fetchString = `https://noahs-server-proj1.herokuapp.com/https://www.wikidata.org/w/api.php?action=wbgetclaims&property=P18&format=json&entity=${place.placeInfo}`;
-          const mediaWikiResponse = await fetch(fetchString);
-          const data = await mediaWikiResponse.json();
-
-          //if an image exists, save image URL in place.placeImage
-          if (data.claims.P18) {
-            const imageName =
-              data.claims.P18[0].mainsnak.datavalue.value.replaceAll(" ", "_");
-            const md5Hash = md5(imageName);
-            const ab = md5Hash.substring(0, 2);
-            const a = ab.substring(0, 1);
-            place.placeImage = `https://upload.wikimedia.org/wikipedia/commons/${a}/${ab}/${imageName}`;
-          } else {
-            // No image for this location
-          }
+        if (!response.ok) {
+          throw new Error('something went wrong!');
         }
 
-        //handle drawing tiles
-        //const zoom = 12;
-        //console.log(lat2tile(place.placeLat, zoom))
-        //console.log(lon2tile(place.placeLon, zoom))
+        const { features } = await responseNew.json();
+        
+        const placeData = features.map((place) => ({
+          placeId: place.properties.xid,
+          // placeName: place.properties.name,
+          placeInfo: place.properties.wikidata,
+          placeDescription: place.properties.highlighted_name,
+          placeType: place.properties.kinds.replaceAll(',', ', ').replaceAll('_', ' '),
+          //placeLat: place.geometry.coordinates[0],
+          //placeLon: place.geometry.coordinates[1]
+        }));
+
+        // attach image to places when possible
+        for (const place of placeData) {
+          if (place.placeInfo) {
+            //query the mediawiki API:
+            const fetchString = `https://noahs-server-proj1.herokuapp.com/https://www.wikidata.org/w/api.php?action=wbgetclaims&property=P18&format=json&entity=${place.placeInfo}`;
+            const mediaWikiResponse = await fetch(fetchString);
+            const data = await mediaWikiResponse.json();
+
+            //if an image exists, save image URL in place.placeImage
+            if (data.claims.P18) {
+              const imageName = data.claims.P18[0].mainsnak.datavalue.value.replaceAll(' ', '_');
+              const md5Hash = md5(imageName);
+              const ab = md5Hash.substring(0,2);
+              const a = ab.substring(0,1);
+              place.placeImage = `https://upload.wikimedia.org/wikipedia/commons/${a}/${ab}/${imageName}`;
+            }
+            else {
+              // No image for this location
+            }
+          }
+
+          //handle drawing tiles
+          //const zoom = 12;
+          //console.log(lat2tile(place.placeLat, zoom))
+          //console.log(lon2tile(place.placeLon, zoom))
+        }
+
+        setSearchedPlaces(placeData);
+        setSearchInput('');
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    // create a function to handle saving a place to our database
+    const handleSavePlace = async (placeId) => {
+      // find the place in `searchedPlaces` state by the matching id
+      const placeToSave = searchedPlaces.find((place) => place.placeId === placeId);
+
+      // get token
+      const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+      if (!token) {
+        return false;
       }
 
-      setSearchedPlaces(placeData);
-      setSearchInput("");
-    } catch (err) {
-      console.error(err);
-    }
-  };
+      try {
+        const {data} = await savePlace({
+          variables: { newPlace: {...placeToSave } },        
+        });
 
-  // create a function to handle saving a place to our database
-  const handleSavePlace = async (placeId) => {
-    // find the place in `searchedPlaces` state by the matching id
-    const placeToSave = searchedPlaces.find(
-      (place) => place.placeId === placeId
-    );
-
-    // get token
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (!token) {
-      return false;
-    }
-
-    try {
-      const { data } = await savePlace({
-        variables: { newPlace: { ...placeToSave } },
-      });
-
-      // if place successfully saves to user's account, save place id to state
-      setSavedPlaceIds([...savedPlaceIds, placeToSave.placeId]);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+        // if place successfully saves to user's account, save place id to state 
+        setSavedPlaceIds([...savedPlaceIds, placeToSave.placeId]);
+      } catch (err) {
+        console.error(err);
+      }
+    };
   return (
     <>
       <Jumbotron fluid className="text-light bg-primary">
