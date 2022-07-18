@@ -6,6 +6,8 @@ import { savePlaceIds, getSavedPlaceIds } from '../utils/localStorage';
 import { useMutation } from '@apollo/client';
 import { SAVE_PLACE } from '../utils/mutations';
 //import { QUERY_ME } from '../utils/query';
+import { md5 } from '../utils/md5'
+//import { lon2tile, lat2tile } from '../utils/tileHelper';
 
 const SearchPlaces = () => {
     // create state for holding returned opentripmap api data
@@ -40,27 +42,56 @@ const SearchPlaces = () => {
           console.log(parsedJson.lon);
           const lat = parsedJson.lat;
           const lon = parsedJson.lon;
-          const radius = '10000';
+          const radius = '20000';
           
 
           const responseNew = await fetch(`https://api.opentripmap.com/0.1/en/places/autosuggest?name=${searchInput}&lat=${lat}&lon=${lon}&radius=${radius}&apikey=5ae2e3f221c38a28845f05b63f6a8d5eabe3e17858cf7c953b943189`);
 
-        if (!response.ok) {
-            throw new Error('something went wrong!');
-        }
+          if (!response.ok) {
+              throw new Error('something went wrong!');
+          }
 
-        const { features } = await responseNew.json();
-        
-        const placeData = features.map((place) => ({
-            placeId: place.properties.xid,
-            // placeName: place.properties.name,
-            placeInfo: place.properties.wikidata,
-            placeDescription: place.properties.highlighted_name,
-            placeType: place.properties.kinds
-        }));
+          const { features } = await responseNew.json();
+          
+          const placeData = features.map((place) => ({
+              placeId: place.properties.xid,
+              // placeName: place.properties.name,
+              placeInfo: place.properties.wikidata,
+              placeDescription: place.properties.highlighted_name,
+              placeType: place.properties.kinds.replaceAll(',', ', ').replaceAll('_', ' '),
+              //placeLat: place.geometry.coordinates[0],
+              //placeLon: place.geometry.coordinates[1]
+          }));
 
-        setSearchedPlaces(placeData);
-        setSearchInput('');
+          // attach image to places when possible
+          for (const place of placeData) {
+            if (place.placeInfo) {
+              //query the mediawiki API:
+              const fetchString = `https://noahs-server-proj1.herokuapp.com/https://www.wikidata.org/w/api.php?action=wbgetclaims&property=P18&format=json&entity=${place.placeInfo}`;
+              const mediaWikiResponse = await fetch(fetchString);
+              const data = await mediaWikiResponse.json();
+
+              //if an image exists, save image URL in place.placeImage
+              if (data.claims.P18) {
+                const imageName = data.claims.P18[0].mainsnak.datavalue.value.replaceAll(' ', '_');
+                const md5Hash = md5(imageName);
+                const ab = md5Hash.substring(0,2);
+                const a = ab.substring(0,1);
+                place.placeImage = `https://upload.wikimedia.org/wikipedia/commons/${a}/${ab}/${imageName}`;
+              }
+              else {
+                // No image for this location
+              }
+            }
+
+            //handle drawing tiles
+            //const zoom = 12;
+            //console.log(lat2tile(place.placeLat, zoom))
+            //console.log(lon2tile(place.placeLon, zoom))
+          }
+
+          setSearchedPlaces(placeData);
+          setSearchInput('');
         } catch (err) {
             console.error(err);
         }
@@ -116,30 +147,32 @@ const SearchPlaces = () => {
         </Container>
       </Jumbotron>
       <Container>
-        <h2>
+        <h4>
           {searchedPlaces.length
             ? `Viewing ${searchedPlaces.length} results:`
             : 'Search for a location to begin'}
-        </h2>
+        </h4>
         <CardColumns>
           {searchedPlaces.map((place) => {
             return (
               <Card key={place.placeId} border='dark'>
                 
                 <Card.Body>
-                <Card.Title dangerouslySetInnerHTML={{__html:place.placeDescription}}></Card.Title>
-                  <p className='small'>Info: {place.placeInfo?<a href= {`http://www.wikidata.org/entity/${place.placeInfo}`}target='_blank'rel='noreferrer'>Wikidata</a>:'Not Available!'}</p>
-                  <Card.Text> Kinds: {place.placeType}</Card.Text>
-                  {Auth.loggedIn() && (
-                    <Button
-                      disabled={savedPlaceIds?.some((savedPlaceId) => savedPlaceId === place.placeId)}
-                      className='btn-block btn-info'
-                      onClick={() => handleSavePlace(place.placeId)}>
-                      {savedPlaceIds?.some((savedPlaceId) => savedPlaceId === place.placeId)
-                        ? 'This location has already been saved!'
-                        : 'Save this location!'}
-                    </Button>
-                  )}
+                  <Card.Img className='cardImage' src={place.placeImage} />
+                  <Card.Title dangerouslySetInnerHTML={{__html:place.placeDescription}}></Card.Title>
+                    <p className='small'>Info: {place.placeInfo?<a href= {`http://www.wikidata.org/entity/${place.placeInfo}`}target='_blank'rel='noreferrer'>Wikidata</a>:'Not Available!'}</p>
+                    <Card.Text> Kinds: {place.placeType}</Card.Text>
+                    
+                    {Auth.loggedIn() && (
+                      <Button
+                        disabled={savedPlaceIds?.some((savedPlaceId) => savedPlaceId === place.placeId)}
+                        className='btn-block btn-info'
+                        onClick={() => handleSavePlace(place.placeId)}>
+                        {savedPlaceIds?.some((savedPlaceId) => savedPlaceId === place.placeId)
+                          ? 'This location has already been saved!'
+                          : 'Save this location!'}
+                      </Button>
+                    )}
                 </Card.Body>
               </Card>
             );

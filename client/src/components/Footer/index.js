@@ -33,6 +33,7 @@ function Footer() {
           ></img>
         </a>
       </div>
+      &copy; 2022, Chasing Dreams, Inc.
     </footer>
   );
   

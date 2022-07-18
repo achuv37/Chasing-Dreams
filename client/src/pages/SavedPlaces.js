@@ -39,15 +39,15 @@ const handleDeletePlace = async (placeId) => {
     <>
       <Jumbotron fluid className='text-light bg-dark'>
         <Container>
-          <h1>Viewing your favorite locations!</h1>
+          <h4>Viewing your favorite locations!</h4>
         </Container>
       </Jumbotron>
       <Container>
-        <h2>
+        <h4>
           {userData.savedPlaces && userData.savedPlaces.length
             ? `Viewing ${userData.savedPlaces.length} saved ${userData.savedPlaces.length === 1 ? 'place' : 'places'}:`
             : 'You have no saved locations!'}
-        </h2>
+        </h4>
         <CardColumns>
           {userData.savedPlaces && userData.savedPlaces.map((place) => {
             return (
