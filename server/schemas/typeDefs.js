@@ -17,6 +17,7 @@ type User {
     placeInfo: String
     placeDescription: String
     placeType: String
+    placeImage: String
   }
 
   input PlaceInput {
@@ -25,6 +26,7 @@ type User {
     placeInfo: String
     placeDescription: String
     placeType: String
+    placeImage: String
   }
 
   type Mutation {
