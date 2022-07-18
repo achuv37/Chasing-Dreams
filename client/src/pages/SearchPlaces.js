@@ -50,13 +50,14 @@ const SearchPlaces = () => {
         }
 
         const { features } = await responseNew.json();
+        console.log(features)
         
         const placeData = features.map((place) => ({
             placeId: place.properties.xid,
             // placeName: place.properties.name,
             placeInfo: place.properties.wikidata,
             placeDescription: place.properties.highlighted_name,
-            placeType: place.properties.kinds
+            placeType: place.properties.kinds.replaceAll(',', ', ')
         }));
 
         setSearchedPlaces(placeData);
