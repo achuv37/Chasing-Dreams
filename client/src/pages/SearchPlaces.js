@@ -116,11 +116,11 @@ const SearchPlaces = () => {
         </Container>
       </Jumbotron>
       <Container>
-        <h2>
+        <h4>
           {searchedPlaces.length
             ? `Viewing ${searchedPlaces.length} results:`
             : 'Search for a location to begin'}
-        </h2>
+        </h4>
         <CardColumns>
           {searchedPlaces.map((place) => {
             return (
