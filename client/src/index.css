@@ -17,6 +17,9 @@ h6 {
 }
 
 /* Footer styling */
+#spacing {
+  height: 100px;
+}
 .footer {
   display: flex;
   position: fixed;
@@ -107,6 +110,9 @@ h6 {
     width: 80%;
   }
 
+  #spacing {
+    height: 70px;
+  }
   .footer {
     font-size: x-small;
     padding: 5px;
@@ -136,6 +142,10 @@ h6 {
   .cardImage {
     float: none;
     width: 90%;
+  }
+
+  #spacing {
+    height: 55px;
   }
 
   .footer {

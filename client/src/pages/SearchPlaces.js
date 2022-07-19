@@ -32,9 +32,6 @@ const SearchPlaces = () => {
       return () => savePlaceIds(savedPlaceIds);
     })
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
     const handleFormSubmit = async (event) => {
       event.preventDefault();
 
