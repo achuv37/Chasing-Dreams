@@ -54,6 +54,7 @@ const handleDeletePlace = async (placeId) => {
               <Card key={place.placeId} border='dark'>
                 
                 <Card.Body>
+                  <Card.Img className='cardImage' src={place.placeImage} />
                   <Card.Title dangerouslySetInnerHTML={{__html:place.placeDescription}}></Card.Title>
                   <p className='small'>Info: {place.placeInfo?<a href= {`http://www.wikidata.org/entity/${place.placeInfo}`}target='_blank'rel='noreferrer'>Wikidata</a>:'Not Available!'}</p>
                   <Card.Text> Kinds: {place.placeType}</Card.Text>
