@@ -43,13 +43,13 @@ h6 {
 .hero {
   background-size: cover;
   background-repeat: no-repeat;
-  /* position: fixed; */
   width: 100%;
   height: 100%;
 }
 
 .hero-home {
   background-image: url("./assets/images/Maldives_GettyImages-686525938.webp");
+  position: fixed;
 }
 
 .hero-search {
