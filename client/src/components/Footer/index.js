@@ -28,11 +28,8 @@ function Footer() {
             ></img>
           </a>
         </div>
-        <div>&copy; 2022, Chasing Dreams, Inc.</div>
       </footer>
-      <div className="copyright">
-          &copy; 2022, Chasing Dreams, Inc.
-      </div>
+      <div className="copyright">&copy; 2022, Chasing Dreams, Inc.</div>
     </>
   );
 }
