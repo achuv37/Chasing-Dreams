@@ -4,9 +4,8 @@ import React from "react";
 function Footer() {
   return (
     <>
-      <div id="spacing"></div>
       <footer className="footer">
-        <div>
+        <div className="flex flex-row social-links">
           <a href="http://facebook.com/" target="_blank" rel="noreferrer">
             <img
               src={require("../../assets/logos/facebook.jpg")}
@@ -14,8 +13,6 @@ function Footer() {
               className="logos"
             ></img>
           </a>
-        </div>
-        <div>
           <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
             <img
               src={require("../../assets/logos/linkedin.png")}
@@ -23,8 +20,6 @@ function Footer() {
               className="logos"
             ></img>
           </a>
-        </div>
-        <div>
           <a href="https://www.twitter.com/" target="_blank" rel="noreferrer">
             <img
               src={require("../../assets/logos/twitter.png")}
@@ -33,8 +28,11 @@ function Footer() {
             ></img>
           </a>
         </div>
-        &copy; 2022, Chasing Dreams, Inc.
+        <div>&copy; 2022, Chasing Dreams, Inc.</div>
       </footer>
+      <div className="copyright">
+          &copy; 2022, Chasing Dreams, Inc.
+      </div>
     </>
   );
 }
