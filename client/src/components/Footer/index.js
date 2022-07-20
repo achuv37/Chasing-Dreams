@@ -32,9 +32,11 @@ function Footer() {
               className="logos"
             ></img>
           </a>
-        </div>
-        &copy; 2022, Chasing Dreams, Inc.
+        </div>        
       </footer>
+      <div className="copyright">
+          &copy; 2022, Chasing Dreams, Inc.
+      </div>
     </>
   );
 }

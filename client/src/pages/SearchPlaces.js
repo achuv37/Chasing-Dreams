@@ -139,9 +139,9 @@ const SearchPlaces = () => {
         <Container>
           <h1>Search for Locations!</h1>
           <Form onSubmit={handleFormSubmit}>
-            <Form.Row>
-              <Col xs={12} md={8}>
+            <Form.Row className="searchForm">
                 <Form.Control
+                  className="searchFormInput"
                   name="searchInput"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
@@ -153,12 +153,9 @@ const SearchPlaces = () => {
                       : "Search for a location to begin!"
                   }
                 />
-              </Col>
-              <Col xs={12} md={4}>
-                <Button type="submit" variant="success" size="lg">
+                <Button className="searchBtn" type="submit" variant="success" size="lg">
                   Submit Search
                 </Button>
-              </Col>
             </Form.Row>
           </Form>
         </Container>
