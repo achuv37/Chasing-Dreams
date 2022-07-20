@@ -140,27 +140,27 @@ const SearchPlaces = () => {
           <h1>Search for Locations!</h1>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row className="searchForm">
-                <Form.Control
-                  className="searchFormInput"
-                  name="searchInput"
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  type="text"
-                  size="lg"
-                  placeholder={
-                    searchedPlaces.length
-                      ? `Viewing ${searchedPlaces.length} results`
-                      : "Search for a location to begin!"
-                  }
-                />
-                <Button className="searchBtn" type="submit" variant="success" size="lg">
-                  Submit Search
-                </Button>
+              <Form.Control
+                className="searchFormInput"
+                name="searchInput"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                type="text"
+                size="lg"
+                placeholder={
+                  searchedPlaces.length
+                    ? `Viewing ${searchedPlaces.length} results`
+                    : "Search for a location to begin!"
+                }
+              />
+              <Button className="searchBtn" type="submit" variant="success" size="lg">
+                Submit Search
+              </Button>
             </Form.Row>
           </Form>
         </Container>
       </Jumbotron>
-      <section className="hero hero-search">
+      <section className="hero hero-search card-stack">
         <Container>
           {/* <h4>
             {searchedPlaces.length

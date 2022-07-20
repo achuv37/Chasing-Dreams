@@ -10,6 +10,8 @@ h5,
 h6 {
   font-family: "Rubik Mono One", sans-serif;
   padding-top: 5px;
+  margin-bottom: -0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .small {
@@ -64,6 +66,17 @@ h6 {
 
 .hero-search {
   background-image: url("./assets/images/andre-benz-CR0E20Of7yU-unsplash.jpg");
+  min-height: 100vw;
+}
+
+.hero-saved {
+  background-image: url("./assets/images/Grand_Canyon.jpg");
+  min-height: 100vw;
+  width: 100%;
+}
+
+.hero-saved h4 {
+  color: white;
 }
 
 .hero-cta {
@@ -97,6 +110,14 @@ h6 {
 .searchFormInput {
   margin-right: 5px;
   font-size: 1.5rem;
+}
+
+.card {
+  margin: 0px auto 5px auto;
+}
+
+.card-stack {
+  padding: 5px 0 100px 0;
 }
 
 .cardImage {
