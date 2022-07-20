@@ -1,6 +1,6 @@
 # Chasing-Dreams# 
 
-![license ](https://img.shields.io/badge/License-None-blue.svg)
+![License: Unlicensed](https://img.shields.io/badge/License-Unlicensed-blue.svg)
 
 ## Description 
 
@@ -11,14 +11,16 @@ Chasing Dreams is a travel application that helps users to find hotels, flights,
 * [Usage](#usage)
 * [License](#license)
 * [Contributing](#contribution)
-* [Test](#test)
+* [Technologies](#technologies)
+* [Links](#links)
 * [Questions](#questions)
 
 
 ## Install
-N/A
-
-
+    - Clone repository from [https://github.com/Mikekuney/Chasing-Dreams]
+    - Be sure to be in the root directory of the project and run `npm install`
+    - Double check to make sure all packages included in the package.json file are installed
+    - Run `npm run develop`
 
 
 ## Usage
@@ -27,19 +29,31 @@ The user needs to know the destination for their trip and can use the applicatio
 
 
 ## License
-
-None
+### <em>NOTICE</em>:
+This project is licensed under the Unlicensed license.
+For more information, CLick Here:
+http://unlicense.org/
 
 
 ## Contributing 
-
-N/A
-
+Michael Kuney, Aswathy Ajesh, Audrey Fogle, Jason Arritt, & Richard Huffman
 
 
-## Test
-N/A
+## Technologies
+React, Node.js, Express,.js, MongoDB, Mongoose, graphgl, bcrypt, JWT, Apollo, Bootstrap, Heroku, Opentripmap API
+
+
+## Links
+Github Repo: https://github.com/Mikekuney/Chasing-Dreams
+
+Heroku Link: https://chasing-dreams.herokuapp.com/
 
 
 ## Questions
-If you have any questions, contact me by email at [N/A](mailto:N/A) or on github at [https://github.com/Mikekuney/Chasing-Dreams](https://github.com/https://github.com/Mikekuney/Chasing-Dreams).
+If you have any questions, contact me by email at:
+
+ [mikeykuney84@gmail.com](mailto:mikeykuney84@gamil.com)
+
+ or visit github at:
+
+ [https://github.com/Mikekuney/Chasing-Dreams](https://github.com/https://github.com/Mikekuney/Chasing-Dreams).
