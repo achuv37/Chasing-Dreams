@@ -54,6 +54,17 @@ h6 {
 
 .hero-search {
   background-image: url("./assets/images/andre-benz-CR0E20Of7yU-unsplash.jpg");
+  min-height: 100vw;
+}
+
+.hero-saved {
+  background-image: url("./assets/images/Grand_Canyon.jpg");
+  min-height: 100vw;
+  width: 100%;
+}
+
+.hero-saved h4 {
+  color: white;
 }
 
 .hero-cta {
@@ -74,6 +85,10 @@ h6 {
   text-align: center;
 
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card {
+  margin: 5px auto;
 }
 
 .cardImage {
