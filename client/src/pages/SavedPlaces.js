@@ -53,7 +53,7 @@ const SavedPlaces = () => {
           </h4>
         </Container>
       </Jumbotron>
-      <div className="hero hero-saved">
+      <div className="hero hero-saved card-stack">
         <div>
           {/* <h4>
             {userData.savedPlaces && userData.savedPlaces.length

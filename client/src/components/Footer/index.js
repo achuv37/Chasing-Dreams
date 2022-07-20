@@ -4,7 +4,6 @@ import React from "react";
 function Footer() {
   return (
     <>
-      <div id="spacing"></div>
       <footer className="footer">
         <div className="flex flex-row social-links">
           <a href="http://facebook.com/" target="_blank" rel="noreferrer">

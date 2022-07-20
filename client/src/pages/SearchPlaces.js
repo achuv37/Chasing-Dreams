@@ -163,7 +163,7 @@ const SearchPlaces = () => {
           </Form>
         </Container>
       </Jumbotron>
-      <section className="hero hero-search">
+      <section className="hero hero-search card-stack">
         <Container>
           {/* <h4>
             {searchedPlaces.length

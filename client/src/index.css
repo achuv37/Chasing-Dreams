@@ -93,6 +93,10 @@ h6 {
   margin: 0px auto 5px auto;
 }
 
+.card-stack {
+  padding: 5px 0 100px 0;
+}
+
 .cardImage {
   display: block;
   width: 40%;
