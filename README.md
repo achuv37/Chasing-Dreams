@@ -4,7 +4,7 @@
 
 ## Description 
 
-Chasing Dreams is a travel application that helps users to find hotels, flights, and attractions. We will be using MERN stack single-page application, MongoDB back end, GraphQL API, Express.js, Node.js, React and authentication with JWT. The API's are  Amadeus, and Geo Appify. 
+Chasing Dreams is a travel application that helps users to find hotels and attractions at locations that they wish to possibly visit. The user will have the ability to sign-up/login to be able to search locations and save said locations for future reference if they desire.  Locations will be saved on another page and that the user is able to lick to and be able to delete saved locations if they choose and when they are finished they have the option to logout. the User will be able to return to the app and login with their data that has been cached.  We will be using MERN stack single-page application, MongoDB back end, GraphQL API, Express.js, Node.js, React and authentication with JWT. The API's used for this application are opentripmap API and wikimedia API. 
 
 ## Images
 ![CDimage1](https://user-images.githubusercontent.com/96913841/179884168-556f0694-8f67-438f-9b45-97fdf9a10a4a.png)
@@ -30,7 +30,11 @@ Chasing Dreams is a travel application that helps users to find hotels, flights,
 
 ## Usage
 
-The user needs to know the destination for their trip and can use the application to get flight plans, logging, and find attractions in the area they will be going.
+    - User is able ot search for locations that they might like to visit and have a page      populate with hotels and attractions that they might like to visit.
+    - User is able to save locations that they like to visit and have a page populate with saved locations.
+    - User is able to delete saved locations.
+    - User is able to logout and return to the login page.
+    - User is able to login with their data that has been cached.
 
 
 ## License
@@ -45,7 +49,7 @@ Michael Kuney, Aswathy Ajesh, Audrey Fogle, Jason Arritt, & Richard Huffman
 
 
 ## Technologies
-React, Node.js, Express,.js, MongoDB, Mongoose, graphgl, bcrypt, JWT, Apollo, Bootstrap, Heroku, Opentripmap API
+React, Node.js, Express,.js, MongoDB, Mongoose, graphgl, bcrypt, JWT, Apollo, Bootstrap, Heroku, Opentripmap API, wikimedia API
 
 
 ## Links
