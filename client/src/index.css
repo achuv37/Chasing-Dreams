@@ -9,6 +9,8 @@ h4,
 h5,
 h6 {
   font-family: "Rubik Mono One", sans-serif;
+  margin-bottom: -0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .small {
@@ -88,7 +90,7 @@ h6 {
 }
 
 .card {
-  margin: 5px auto;
+  margin: 0px auto 5px auto;
 }
 
 .cardImage {

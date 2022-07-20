@@ -139,7 +139,7 @@ const SearchPlaces = () => {
         <Container>
           <h1>Search for Locations!</h1>
           <Form onSubmit={handleFormSubmit}>
-            <Form.Row>
+            <Form.Row className="">
               <Col xs={12} md={8}>
                 <Form.Control
                   name="searchInput"
