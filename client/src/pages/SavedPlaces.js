@@ -44,59 +44,70 @@ const SavedPlaces = () => {
     <>
       <Jumbotron fluid className="text-light bg-dark ">
         <Container>
-          <h4>Viewing your favorite locations!</h4>
+          <h4>
+            {userData.savedPlaces && userData.savedPlaces.length
+              ? `Viewing ${userData.savedPlaces.length} saved ${
+                  userData.savedPlaces.length === 1 ? "place" : "places"
+                }!`
+              : "You have no saved locations!"}
+          </h4>
         </Container>
       </Jumbotron>
-      <Container className="hero hero-saved">
+      <div className="hero hero-saved">
         <div>
-          <h4>
+          {/* <h4>
             {userData.savedPlaces && userData.savedPlaces.length
               ? `Viewing ${userData.savedPlaces.length} saved ${
                   userData.savedPlaces.length === 1 ? "place" : "places"
                 }:`
               : "You have no saved locations!"}
-          </h4>
-          <CardColumns>
-            {userData.savedPlaces &&
-              userData.savedPlaces.map((place) => {
-                return (
-                  <Card key={place.placeId} border="dark">
-                    <Card.Body>
-                      <Card.Img className="cardImage" src={place.placeImage} />
-                      <Card.Title
-                        dangerouslySetInnerHTML={{
-                          __html: place.placeDescription,
-                        }}
-                      ></Card.Title>
-                      <p className="small">
-                        Info:{" "}
-                        {place.placeInfo ? (
-                          <a
-                            href={`http://www.wikidata.org/entity/${place.placeInfo}`}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Wikidata
-                          </a>
-                        ) : (
-                          "Not Available!"
-                        )}
-                      </p>
-                      <Card.Text> Kinds: {place.placeType}</Card.Text>
+          </h4> */}
+          <Container>
+            <CardColumns>
+              {userData.savedPlaces &&
+                userData.savedPlaces.map((place) => {
+                  return (
+                    <Card key={place.placeId} border="dark">
+                      <Card.Body>
+                        <Card.Img
+                          className="cardImage"
+                          src={place.placeImage}
+                        />
+                        <Card.Title
+                          dangerouslySetInnerHTML={{
+                            __html: place.placeDescription,
+                          }}
+                        ></Card.Title>
+                        <p className="small">
+                          Info:{" "}
+                          {place.placeInfo ? (
+                            <a
+                              href={`http://www.wikidata.org/entity/${place.placeInfo}`}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Wikidata
+                            </a>
+                          ) : (
+                            "Not Available!"
+                          )}
+                        </p>
+                        <Card.Text> Kinds: {place.placeType}</Card.Text>
 
-                      <Button
-                        className="btn-block btn-danger"
-                        onClick={() => handleDeletePlace(place.placeId)}
-                      >
-                        Delete this Place!
-                      </Button>
-                    </Card.Body>
-                  </Card>
-                );
-              })}
-          </CardColumns>
+                        <Button
+                          className="btn-block btn-danger"
+                          onClick={() => handleDeletePlace(place.placeId)}
+                        >
+                          Delete this Place!
+                        </Button>
+                      </Card.Body>
+                    </Card>
+                  );
+                })}
+            </CardColumns>
+          </Container>
         </div>
-      </Container>
+      </div>
     </>
   );
 };
