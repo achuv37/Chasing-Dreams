@@ -7,7 +7,10 @@
 Chasing Dreams is a travel application that helps users to find hotels, flights, and attractions. We will be using MERN stack single-page application, MongoDB back end, GraphQL API, Express.js, Node.js, React and authentication with JWT. The API's are  Amadeus, and Geo Appify. 
 
 ## Images
-
+![CDimage1](https://user-images.githubusercontent.com/96913841/179884168-556f0694-8f67-438f-9b45-97fdf9a10a4a.png)
+![CDimage2](https://user-images.githubusercontent.com/96913841/179884284-0c6e30db-16e8-4dd5-b006-87eec1701894.png)
+![CDimage3](https://user-images.githubusercontent.com/96913841/179884382-fee8b426-fd2c-49d9-9d32-3418510cc532.png)
+![CDimage4](https://user-images.githubusercontent.com/96913841/179884475-ffca8e83-6d89-4f0f-83d7-240185285a8b.png)
 ## Table of Contents
 * [Install](#install)
 * [Usage](#usage)
