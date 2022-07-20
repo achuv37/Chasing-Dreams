@@ -11,7 +11,7 @@ function Home() {
           can help you to unwind and share new memories with your loved ones; on
           the other hand it also allows us to form a better understanding of
           ourselves and our beliefs by broadening our horizons.<br></br>
-          <br></br>Don't be afraid to chase your dreams!
+          <br></br>Search for a destination and begin chasing your dreams today!
         </p>
       </div>
     </section>
