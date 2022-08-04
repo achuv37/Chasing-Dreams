@@ -53,16 +53,8 @@ React, Node.js, Express,.js, MongoDB, Mongoose, graphgl, bcrypt, JWT, Apollo, Bo
 
 
 ## Links
-Github Repo: https://github.com/Mikekuney/Chasing-Dreams
+Github Repo: https://github.com/achuv37/Chasing-Dreams
 
 Heroku Link: https://chasing-dreams.herokuapp.com/
 
 
-## Questions
-If you have any questions, contact me by email at:
-
- [mikeykuney84@gmail.com](mailto:mikeykuney84@gamil.com)
-
- or visit github at:
-
- [https://github.com/Mikekuney/Chasing-Dreams](https://github.com/https://github.com/Mikekuney/Chasing-Dreams).
